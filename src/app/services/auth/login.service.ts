@@ -42,4 +42,12 @@ export class LoginService {
         return true;
       }));
   }
+
+  public logOutUser(): Observable<boolean> {
+    return this.http.post<any>('http://localhost:3000/admin/logout', {}, this.options)
+      .pipe(map((ret: any): boolean => {
+        console.log('LoginService#logOutUser', ret);
+        return true;
+      }));
+  }
 }
