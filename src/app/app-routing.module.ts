@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AdminloginPageComponent } from './pages/auth/adminlogin-page/adminlogin-page.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { CanActivateGuard } from './can-activate.guard';
+import { RouterModule, Routes } from '@angular/router';
+
+import { CanActivateGuard } from './helpers';
+import {
+  AdminloginPageComponent,
+  DashboardComponent,
+} from './pages';
 
 const routes: Routes = [
   { path: 'login', component: AdminloginPageComponent },
-  { path: '', component: DashboardComponent, canActivate: [CanActivateGuard] },
+  { path: '', component: DashboardComponent, canActivate: [ CanActivateGuard ] },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [ RouterModule],
+  imports: [ RouterModule.forRoot(routes) ],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

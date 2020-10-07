@@ -1,9 +1,7 @@
-import { ɵangular_packages_platform_browser_dynamic_platform_browser_dynamic_a } from '@angular/platform-browser-dynamic';
-
 export interface User {
-    userId: number,
-    userName: string,
-    userEmail: string,
-    userRole: string,
-    created_at: string
+  created_at: string;
+  userEmail: string;
+  userId: number;
+  userName: string;
+  userRole: string;
 }

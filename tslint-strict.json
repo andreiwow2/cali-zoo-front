@@ -1,0 +1,273 @@
+{
+  "extends": "rxjs-tslint-rules",
+  "rules": {
+    "align": [
+      true,
+      "arguments",
+      "elements",
+      "members",
+      "parameters",
+      "statements"
+    ],
+    "array-type": [true, "array-simple"],
+    "arrow-parens": [true, "ban-single-arg-parens"],
+    "await-promise": true,
+    "ban-comma-operator": true,
+    "ban-types": [
+      true,
+      ["Object", "Use `{}` instead."],
+      ["Function", "Prefer a specific function type, like `() => void`."],
+      ["Boolean", "Use `boolean` instead."],
+      ["Number", "Use `number` instead."],
+      ["String", "Use `string` instead."],
+      ["Symbol", "Use `symbol` instead."]
+    ],
+    "binary-expression-operand-order": true,
+    "component-max-inline-declarations": [
+      true,
+      {
+        "template": 10
+      }
+    ],
+    "contextual-decorator": true,
+    "cyclomatic-complexity": true,
+    "encoding": true,
+    "file-name-casing": [
+      true,
+      "kebab-case"
+    ],
+    "function-constructor": true,
+    "import-destructuring-spacing": true,
+    "increment-decrement": [
+      true,
+      "allow-post"
+    ],
+    "indent": [
+      true,
+      "spaces",
+      2
+    ],
+    "max-line-length": [
+      true,
+      {
+        "ignore-pattern": "^\\s*(// |\\* )?\\S+$",
+        "limit": 140
+      }
+    ],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
+      }
+    ],
+    "no-boolean-literal-compare": true,
+    "no-consecutive-blank-lines": true,
+    "no-console": [
+      true,
+      "count",
+      "countReset",
+      "debug",
+      "dir",
+      "dirxml",
+      "exception",
+      "group",
+      "groupCollapsed",
+      "groupEnd",
+      "info",
+      "log",
+      "profile",
+      "profileEnd",
+      "table",
+      "time",
+      "timeEnd",
+      "timeLog",
+      "timeStamp",
+      "trace"
+    ],
+    "no-default-export": true,
+    "no-default-import": true,
+    "no-duplicate-imports": true,
+    "no-duplicate-switch-case": true,
+    "no-duplicate-variable": [true, "check-parameters"],
+    "no-dynamic-delete": true,
+    "no-empty": true,
+    "no-floating-promises": true,
+    "no-for-in-array": true,
+    "no-forward-ref": true,
+    "no-implicit-dependencies": [
+      true,
+      "dev",
+      ["@app", "@env", "@testing"]
+    ],
+    "no-import-side-effect": true,
+    "no-inferrable-types": [
+      true,
+      "ignore-params"
+    ],
+    "no-invalid-template-strings": true,
+    "no-invalid-this": [
+      true,
+      "check-function-in-method"
+    ],
+    "no-lifecycle-call": true,
+    "no-null-keyword": true,
+    "no-null-undefined-union": true,
+    "no-object-literal-type-assertion": true,
+    "no-parameter-reassignment": true,
+    "no-pipe-impure": true,
+    "no-queries-metadata-property": true,
+    "no-return-await": true,
+    "no-sparse-arrays": true,
+    "no-tautology-expression": true,
+    "no-this-assignment": true,
+    "no-unbound-method": [true, "ignore-static"],
+    "no-unnecessary-callback-wrapper": true,
+    "no-unused-css": true,
+    "no-var-requires": true,
+    "no-void-expression": true,
+    "number-literal-format": false,
+    "object-literal-sort-keys": [
+      true,
+      "ignore-case"
+    ],
+    "one-variable-per-declaration": true,
+    "only-arrow-functions": true,
+    "ordered-imports": true,
+    "prefer-conditional-expression": [
+      true,
+      "check-else-if"
+    ],
+    "prefer-inline-decorator": [
+      true,
+      {
+        "getters": {"safelist": ["HostBinding"]},
+        "methods": false
+      }
+    ],
+    "prefer-method-signature": true,
+    "prefer-object-spread": true,
+    "prefer-output-readonly": true,
+    "prefer-template": true,
+    "prefer-while": true,
+    "promise-function-async": true,
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape",
+      "avoid-template"
+    ],
+    "relative-url-prefix": true,
+    "restrict-plus-operands": true,
+    "return-undefined": true,
+    "rxjs-no-async-subscribe": { "severity": "error" },
+    "rxjs-no-compat": { "severity": "error" },
+    "rxjs-no-connectable": { "severity": "error" },
+    "rxjs-no-create": { "severity": "error" },
+    "rxjs-no-explicit-generics": false,
+    "rxjs-no-ignored-notifier": { "severity": "error" },
+    "rxjs-no-ignored-replay-buffer": { "severity": "error" },
+    "rxjs-no-ignored-takewhile-value": { "severity": "error" },
+    "rxjs-no-implicit-any-catch": false,
+    "rxjs-no-index": { "severity": "error" },
+    "rxjs-no-internal": { "severity": "error" },
+    "rxjs-no-nested-subscribe": { "severity": "error" },
+    "rxjs-no-redundant-notify": { "severity": "error" },
+    "rxjs-no-sharereplay": {
+      "options": [{
+        "allowConfig": true
+      }],
+      "severity": "error"
+    },
+    "rxjs-no-subclass": { "severity": "error" },
+    "rxjs-no-subject-unsubscribe": { "severity": "error" },
+    "rxjs-no-subject-value": { "severity": "error" },
+    "rxjs-no-topromise": { "severity": "error" },
+    "rxjs-no-unbound-methods": { "severity": "error" },
+    "rxjs-no-unsafe-catch": { "severity": "error" },
+    "rxjs-no-unsafe-first": { "severity": "error" },
+    "rxjs-no-unsafe-subject-next": { "severity": "error" },
+    "rxjs-no-unsafe-switchmap": { "severity": "error" },
+    "rxjs-no-unsafe-takeuntil": { "severity": "error" },
+    "rxjs-throw-error": { "severity": "error" },
+    "space-before-function-paren": [
+      true,
+      {
+        "anonymous": "always",
+        "asyncArrow": "always",
+        "constructor": "never",
+        "method": "never",
+        "named": "never"
+      }
+    ],
+    "space-within-parens": 1,
+    "static-this": true,
+    "switch-default": true,
+    "template-accessibility-alt-text": true,
+    "template-accessibility-elements-content": true,
+    "template-accessibility-label-for": true,
+    "template-accessibility-tabindex-no-positive": true,
+    "template-accessibility-table-scope": true,
+    "template-accessibility-valid-aria": true,
+    "template-click-events-have-key-events": false,
+    "template-conditional-complexity": true,
+    "template-cyclomatic-complexity": false,
+    "template-i18n": [
+      false,
+      "check-id",
+      "check-text"
+    ],
+    "template-mouse-events-have-key-events": false,
+    "template-no-autofocus": false,
+    "template-no-call-expression": true,
+    "template-no-distracting-elements": true,
+    "template-use-track-by-function": true,
+    "trailing-comma": [
+      true,
+      {
+        "esSpecCompliant": true,
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
+    "triple-equals": [
+      true,
+      "allow-undefined-check"
+    ],
+    "typedef": [
+      true,
+      "array-destructuring",
+      "object-destructuring",
+      "property-declaration"
+    ],
+    "unnecessary-bind": true,
+    "unnecessary-constructor": true,
+    "unnecessary-else": true,
+    "use-component-view-encapsulation": false,
+    "use-default-type-parameter": true,
+    "use-pipe-decorator": true,
+    "variable-name": [
+      true,
+      "allow-leading-underscore",
+      "ban-keywords",
+      "check-format"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-module",
+      "check-operator",
+      "check-preblock",
+      "check-rest-spread",
+      "check-separator",
+      "check-type",
+      "check-type-operator",
+      "check-typecast"
+    ]
+  }
+}

@@ -1,27 +1,28 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-dashboard',
+  styleUrls: [ './dashboard.component.css' ],
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, OnDestroy {
+  public searchForm: FormGroup;
 
-  searchForm = this.fb.group({
-    searchResult: [''] 
-  });
-
-  constructor(private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    const body = document.getElementsByTagName('body')[0];
-    body.classList.add('sidebar-mini');
+  constructor(private readonly fb: FormBuilder) {
+    this.searchForm = this.fb.group({
+     searchResult: [''],
+   });
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     const body = document.getElementsByTagName('body')[0];
     body.classList.remove('sidebar-mini');
   }
 
+  public ngOnInit(): void {
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.add('sidebar-mini');
+  }
 }

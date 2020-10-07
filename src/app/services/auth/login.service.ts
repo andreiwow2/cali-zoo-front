@@ -1,36 +1,45 @@
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../../helpers/interfaces/User';
+interface HttpOptions {
+  body?: any;
+  headers?: HttpHeaders;
+  observe?: 'body';
+  params?: HttpParams;
+  reportProgress?: boolean;
+  withCredentials?: boolean;
+}
 
-@Injectable({
-  providedIn: 'root'
-})
-
+@Injectable({ providedIn: 'root' })
 export class LoginService {
+  private readonly options: HttpOptions;
 
-  options = {
-    headers: new HttpHeaders()
+  constructor(private readonly http: HttpClient) {
+    this.options = {
+      headers: new HttpHeaders()
         .set('Accept', 'application/json')
-        .set('Content-Type', 'application/x-www-form-urlencoded'),
-    withCredentials: true
-  };
-
-  isAuthenticated(): boolean{
-    console.warn('inside isauth');
-    this.http.get<boolean>('http://localhost:3000/test', this.options).subscribe(data => {
-      console.warn(data);
-      return true;
-    });
-    return false
+        .set('Content-Type', 'application/json'),
+      withCredentials: true,
+    };
   }
 
-  logInUser(value: any): void{
-    this.http.post<any>('http://localhost:3000/login', value, this.options).subscribe(data => {
-      //let user: User = data;
-      //console.warn(data);
-    });
+  public isAuthenticated(): Observable<boolean> {
+    return this.http.get<any>('http://localhost:3000/test', this.options)
+      .pipe(map((ret: any): boolean => {
+        console.log('LoginService#isAuthenticated', ret);
+        return ret;
+      }));
   }
 
-  constructor(private http: HttpClient) { }
+  public logInUser(email: string, password: string): Observable<boolean> {
+    const payload = { email, password };
+
+    return this.http.post<any>('http://localhost:3000/login', payload, this.options)
+      .pipe(map((ret: any): boolean => {
+        console.log('LoginService#logInUser', ret);
+        return true;
+      }));
+  }
 }

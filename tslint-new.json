@@ -1,0 +1,36 @@
+{
+  "rules": {
+    "member-access": true,
+    "member-ordering": [
+      true,
+      {
+        "alphabetize": true,
+        "order": "statics-first"
+      }
+    ],
+    "prefer-on-push-component-change-detection": true,
+    "prefer-readonly": true,
+    "rxjs-no-ignored-observable": { "severity": "error" },
+    "rxjs-no-ignored-subscription": false,
+    "rxjs-no-unsafe-scope": {
+      "options": [{
+        "allowSubscribe": false
+      }],
+      "severity": "error"
+    },
+    "rxjs-prefer-angular-composition": false,
+    "rxjs-prefer-angular-takeuntil": { "severity": "error" },
+    "typedef": [
+      true,
+      "array-destructuring",
+      "arrow-call-signature",
+      "arrow-parameter",
+      "call-signature",
+      "member-variable-declaration",
+      "object-destructuring",
+      "parameter",
+      "property-declaration",
+      "variable-declaration-ignore-function"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+---
+# https://yamllint.readthedocs.io/en/stable/configuration.html#default-configuration
+extends: default
+
+rules:
+  # https://github.com/adrienverge/yamllint/blob/b65769c9d260e1edb8390468c6aa0062ee499840/yamllint/rules/line_length.py#L115
+  line-length:
+    max: 140
