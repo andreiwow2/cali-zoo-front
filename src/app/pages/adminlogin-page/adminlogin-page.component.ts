@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
-import { switchMap, takeUntil } from 'rxjs/operators';
+import { switchMap, takeUntil, map } from 'rxjs/operators';
 import { LoginService } from '@app/services';
+import { Router } from '@angular/router';
 
 interface FormData {
   email: string;
@@ -24,6 +25,7 @@ export class AdminloginPageComponent implements OnInit, OnDestroy {
   constructor(
     private readonly fb: FormBuilder,
     private readonly loginService: LoginService,
+    private readonly router: Router,
   ) {
     this.loginForm = this.fb.group({
       email: [ '', [ Validators.email, Validators.required ] ],
@@ -32,11 +34,19 @@ export class AdminloginPageComponent implements OnInit, OnDestroy {
 
     this.unsubscribe = new Subject<void>();
     this.doLogin = new Subject<FormData>();
-
+    
     this.doLogin.pipe(
       switchMap(({ email, password }: FormData): Observable<boolean> => this.loginService.logInUser(email, password)),
       takeUntil(this.unsubscribe),
-    ).subscribe({
+    ).pipe(map((ret: boolean): void => {
+      if (ret) {
+        this.router.navigateByUrl('').catch((err: any): void => {
+          console.error('AdminLoginPageComponent#doLogin#navigateByUrl', err);
+        }); 
+      } else {
+        console.error('AdminLoginPageComponent#doLogin#next', 'Something went wrong on the server');
+      }
+    })).subscribe({
       error(err: any): void { console.error('AdminloginPageComponent#doLogin', err); },
     });
   }

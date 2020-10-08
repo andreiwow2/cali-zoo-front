@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoginService } from '@app/services';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+//import { User } from '@app/helpers';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,6 +13,7 @@ import { map } from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   public searchForm: FormGroup;
+  public readonly userName: string | null;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -21,6 +23,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.searchForm = this.fb.group({
      searchResult: [''],
    });
+   
+    if (!localStorage.getItem('userName')) 
+      this.userName = 'unknown';
+    else
+      this.userName = localStorage.getItem('userName');
   }
 
   public logOutUser(): void {

@@ -39,6 +39,7 @@ export class LoginService {
     return this.http.post<any>('http://localhost:3000/login', payload, this.options)
       .pipe(map((ret: any): boolean => {
         console.log('LoginService#logInUser', ret);
+        localStorage.setItem('userName', ret.userName);
         return true;
       }));
   }
