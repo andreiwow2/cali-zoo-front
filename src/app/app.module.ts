@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import {
   AdminloginPageComponent,
   DashboardComponent,
+  MainpageComponent
 } from './pages';
 
 @NgModule({
@@ -16,6 +17,7 @@ import {
     AdminloginPageComponent,
     AppComponent,
     DashboardComponent,
+    MainpageComponent,
   ],
   imports: [
     BrowserModule,
