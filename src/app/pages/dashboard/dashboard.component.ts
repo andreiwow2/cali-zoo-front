@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
   styleUrls: [ './dashboard.component.css' ],
   templateUrl: './dashboard.component.html',
 })
+
 export class DashboardComponent implements OnInit, OnDestroy {
   public searchForm: FormGroup;
   public readonly userName: string | null;
