@@ -42,7 +42,7 @@ export class LoginService {
         localStorage.setItem('userName', ret.userName);
         return true;
       }));
-  }
+  } 
 
   public logOutUser(): Observable<boolean> {
     return this.http.post<any>('http://localhost:3000/admin/logout', {}, this.options)
