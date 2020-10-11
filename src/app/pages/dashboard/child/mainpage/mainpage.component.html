@@ -27,7 +27,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{statistics.newOrders | async}}</h3>
 
                 <p>New Orders</p>
               </div>
@@ -108,8 +108,7 @@
                     <tr>
                       <th>Order ID</th>
                       <th>Item</th>
-                      <th>Status</th>
-                      <th>Actions</th>
+                      <th class="text-center">Status</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -117,10 +116,13 @@
                     <tr *ngFor="let order of ORDERS$ | async">
                       <td><a href="pages/examples/invoice.html">{{order.orderId | uppercase}}</a></td>
                       <td>Jacket</td>
-                      <td><span class="badge" [ngClass]="{'bg-warning': order.orderStatus === 'Pending', 'bg-info': order.orderStatus === 'Shiped', 'bg-secondary': order.orderStatus === 'Returned', 'bg-danger': order.orderStatus === 'Canceled', 'bg-success': order.orderStatus === 'Delivered' }">{{order.orderStatus}}</span></td>
-                      <td>
-                        <div class="sparkbar" data-color="#00a65a" data-height="20"><i (mouseover)="testEvent($event)" (mouseout)="testEvent($event)" class="fas fa-eye"></i></div>
-                      </td>
+                      <td class="text-center"><span class="badge" [ngClass]="{
+                        'bg-warning': order.orderStatus === 'Pending',
+                        'bg-info': order.orderStatus === 'Shiped', 
+                        'bg-secondary': order.orderStatus === 'Returned', 
+                        'bg-danger': order.orderStatus === 'Canceled', 
+                        'bg-success': order.orderStatus === 'Delivered' 
+                      }">{{order.orderStatus}}</span></td>
                     </tr>
                     
                     </tbody>
